@@ -1,0 +1,179 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Culture Assignment: View Direction Adaptive Video for VR Optimization
+\end_layout
+
+\begin_layout Author
+Asa Hayes – CSCE-221-506
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+While virtual reality is one of the fastest growing parts of the tech industry
+ right now, it is currently trying to overcome a large hurdle: hardware.
+ While the amount of VR applications being made is growing at a high rate
+ due to the possible applications, use and adoption is lagging heavily behind
+ because of the resources required to do it.
+ As far as consumer use, one has to have essentially the top of line for
+ every involved component.
+ Hardware, and specifically graphics hardware is trying to move along to
+ match due to demand, but solutions are still needed for the interim.
+ One of the current paths to optimization is selective compression of the
+ video streaming component, which is the approach taken from the article
+ covered.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+The basic premise of the approach is to have the total 360° stream mapped
+ onto a sphere like regular VR video format, but have it divided into a
+ grid of smaller individual videos comprised of cropped parts of the HD
+ source.
+ The optimization comes from the division of these sub-videos, as they can
+ be dynamically down-sampled in quality to reduce the necessary workload
+ for streaming.
+ To determine which of these subsections should stay at source quality and
+ which can be put on the back-burner, the positional sensors are used to
+ detect where on the sphere the user is looking.
+ The algorithm used for detecting where the video is projected and for how
+ high quality takes in the current yaw (horizontal orientation), pitch (vertical
+ orientation) and roll (rotational orientation) of the VR headset as a composite
+ vector.
+ From this vector, a projection matrix and a rotation are created for the
+ size and position of the priority field of view, namely the area the user
+ is looking at.
+ The projection matrix creates the total area to be shown on the sphere/grid
+ (as a 2:1 rectangle) and the rotation matrix moves and centers that area
+ to where the user is looking.
+ From this new projected area, a simple three-part decision making process
+ is used to determine if a piece of the grid is in the user's field of view
+ and should be streamed at a higher quality: If the area contains a) one
+ vertex of a section b) the center-point of a section or c) the entire section,
+ said section is to be kept in high definition.
+ All other sections are to be streamed in gradually lower quality as their
+ distance from the main area increases, greatly lessening the resources
+ needed for streaming all of the sections.
+ Additional minor factors are the amount of sections, where higher amounts
+ give marginally better bitrates up to a near negligible degree, and the
+ available bandwidth, which would only factor in on the allocated quality
+ when using a currently uncommon wireless VR display.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+The societal and economic impact of this implementation would not be immediate
+ if implemented soon as we are currently in a transition period in regards
+ to cost of both graphics and VR hardware, but once the next generations
+ of both come out and the current hardware is more available, this technique
+ will serve to extend the range of people that are able to access and develop
+ for VR systems.
+ Having the technical requirements be lowered from the dynamic down-sampling
+ means that not only will the hardware that can run VR content become more
+ and more attainable, the range of hardware that will support high-range
+ VR applications would increase as well.
+ Despite the current trend of having most VR software as video games right
+ now, if VR is more accessible to others as a utility rather than just a
+ toy for those with disposable income, the demand and utility of non-game
+ VR software would most likely increase along with adoption.
+ An increase of VR use like this would most likely trigger a big change
+ in tech culture, similar to the boom in mobile devices that started around
+ a decade ago.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Kim, S.
+ , Yun, J.
+ , Jo, B.
+ , Kim, J.
+ , Chae, H.
+ and Suh, D.
+ (Jan.
+ 2018) View Direction Adaptive 360 Degree Video Streaming System Based on
+ Projected Area.
+ Journal of Computer and Communications, Vol.
+ 6 No.
+ 1, p.
+ 203-212.
+ doi: 10.4236/jcc.2018.61020.
+\end_layout
+
+\end_body
+\end_document
